@@ -86,6 +86,8 @@
 \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
 \newcommand{\norm}[1]{\autodvert*{#1}}
 
+\newcommand{\var}{\text{var}}
+
 \begin{document}
 
 \maketitle
@@ -98,7 +100,7 @@
 	The plot of the function and the data is shown below:
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=.7\linewidth]{27a.png}
+		\includegraphics[width=.6\linewidth]{27a.png}
 	\end{figure}
 	This function appears to give a good fit and the plot supports the anticipation.
 	
@@ -216,7 +218,7 @@ Let $k_i = \frac{x_i - \bar{x}}{S_{xx}}, i=1,\dots,n$, then $\hat{\beta}_1 = \su
 we can derive that
 \begin{align*}
 	E(\hat{\beta}_1) &= E\pa{\sum_{i=1}^{n} k_i Y_i} = \sum_{i=1}^{n} k_i E(Y_i) = \sum_{i=1}^{n} k_i (\beta_0 + \beta_1 x_i) = \beta_0 \sum_{i=1}^{n} k_i + \beta_1 \sum_{i=1}^{n} k_i x_i = \beta_1\\
-	var(\hat{\beta}_1) &= var\pa{\sum_{i=1}^{n} k_i Y_i} = \sum_{i=1}^{n} k_i^2 var(Y_i) = \sum_{i=1}^{n} k_i^2\sigma^2 = \frac{\sigma^2}{S_{xx}}
+	\var(\hat{\beta}_1) &= \var\pa{\sum_{i=1}^{n} k_i Y_i} = \sum_{i=1}^{n} k_i^2 \var(Y_i) = \sum_{i=1}^{n} k_i^2\sigma^2 = \frac{\sigma^2}{S_{xx}}
 \end{align*}
 Since $Y_i$'s are assumed to be normally distributed with mean $\mu_i$ and variance $\sigma_i^2$ , the moment-generating function is given by
 \[
