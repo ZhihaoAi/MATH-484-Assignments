@@ -2,6 +2,7 @@
 *.pdf
 *.nb
 *.Rhistory
+*.RData
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
