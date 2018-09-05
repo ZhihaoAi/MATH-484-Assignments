@@ -1,6 +1,7 @@
 ## Custom files:
 *.pdf
 *.nb
+*.Rhistory
 
 ## Core latex/pdflatex auxiliary files:
 *.aux

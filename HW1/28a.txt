@@ -1,0 +1,7 @@
+Call:
+lm(formula = Rate ~ Percentage, data = Crime)
+
+Coefficients:
+(Intercept)   Percentage  
+    20517.6       -170.6  
+

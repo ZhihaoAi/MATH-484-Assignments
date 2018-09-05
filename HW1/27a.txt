@@ -1,0 +1,7 @@
+Call:
+lm(formula = Mass ~ Age, data = Muscle)
+
+Coefficients:
+(Intercept)          Age  
+     156.35        -1.19  
+
