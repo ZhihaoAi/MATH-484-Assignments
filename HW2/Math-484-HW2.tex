@@ -1,0 +1,164 @@
+\documentclass[10pt]{report}
+
+\usepackage{subcaption} % for subfigures
+\usepackage{amsthm} % for QED
+%\usepackage{algpseudocode} % for pseudo-code
+\usepackage{mathtools} % for delimiter
+
+\usepackage{listings} % for code
+\lstset{ 
+	language=R,
+	basicstyle=\ttfamily,
+	numbers=none,
+	stepnumber=1,
+	numbersep=8pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	frame=single,
+	tabsize=2,
+	captionpos=t,
+	breaklines=true,
+	breakatwhitespace=false
+} 
+
+\usepackage{float} % for figure [H]
+\usepackage{booktabs} % for tabular
+\usepackage{caption} % for \caption*
+\usepackage[export]{adjustbox} % for valign=t
+\usepackage{array} % for column type m
+\usepackage{verbatim}
+\usepackage{graphicx}
+%\graphicspath{ {imgs/} }
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+%%%%%% Pagination
+\setlength{\topmargin}{-.3 in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textheight}{9.in}
+\setlength{\textwidth}{6.5in}
+
+%Title page
+\newcommand{\hwTitle}{Homework \#2}
+\newcommand{\hwCourse}{Applied Statistics/Regression}
+\newcommand{\hmwkClassInstructor}{Professor Lulu Kang}
+
+\title{
+	\vspace{2in}
+	\textmd{\textbf{\hwCourse\\\hwTitle}}\\
+	\vspace{0.3in}\large{\textit{\hmwkClassInstructor}}
+	\vspace{3in}
+}
+
+%\title{Homework 1}
+\author{\textbf{Zhihao Ai}}
+\date{}
+
+%Header setting. 
+\pagestyle{fancy}
+\fancyhead[L]{Zhihao Ai}
+\fancyhead[C]{Math 484}
+\fancyhead[R]{Homework 2}
+%%%%%%
+
+%Global setting.
+%\everymath{\displaystyle}
+\setlength\parindent{0pt}
+
+%Custom general commands.
+\newcommand{\ds}{\displaystyle}
+\newcommand{\ts}{\textstyle}
+\newcommand{\f}[1] {f\left(#1\right)}
+\newcommand{\eva}[2] {\left. #1 \right|_{#2}}
+\newcommand{\dintt}[4] {\int_{#1}^{#2} #3 d#4}
+
+\newcolumntype{N}{ >$ c <$}
+\newcolumntype{M}[1]{>{\centering\arraybackslash $}m{#1}<{$}}
+
+\newcommand{\abs}[1] {\left| #1 \right|}
+
+\DeclarePairedDelimiter\autoparen{(}{)}
+\newcommand{\pa}[1]{\autoparen*{#1}}
+\DeclarePairedDelimiter\autodvert{\Vert}{\Vert}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\newcommand{\norm}[1]{\autodvert*{#1}}
+
+\newcommand{\var}{\text{var}}
+
+\begin{document}
+
+\maketitle
+
+\subsection*{Ex 2.27}
+Refer to Muscle mass Problem 1.27.
+\begin{enumerate}
+	\item [a.]
+	Conduct a test to decide whether or not there is negative linear association between amount of muscle mass and age. Control the risk of Type I error at .05. State the alternatives, decision rule, and conclusion. What is the \textit{P}-value of the test?
+	
+	\item [b.]
+	The two-sided \textit{P}-value for the test whether $\beta_0 = 0$ is $0+$. Can it now be concluded that $b_0$ provides relevant information on the amount of muscle mass at birth for a female child?
+	
+	\item [c.]
+	Estimate with a 95 percent confidence interval the difference in expectedd muscle amss for women whose ages differ by one year. Why is it not necessary to know the specific ages to make this estimate?
+\end{enumerate}
+
+\subsection*{Ex 1.19}
+\textbf{Grade point average.} The director of admissions of a small college selected 120 students at random from the new freshman class in a study to determine whether a student's grade point average(GPA) at the end of the freshman year(Y) can be predicted from the ACT test score(X). The results of the study follow. Assume that first-order regression model(1.1) is appropriate.
+\begin{enumerate}
+	\item [a.]
+	Obtain the least squares estimates of $\beta_0$ and $\beta_1$, and state the estimated regression function.
+	
+	\item [b.]
+	Plot the estimated regression function and the data. Does the estimated regression function appear to fit the data well?
+	
+	\item [c.]
+	Obtain a point estimate of the mean freshman GPA for students with ACT test score $X=30$.
+	
+	\item [d.]
+	What is the point estimate of the change in the mean response when the entrance test score increses by one point?
+\end{enumerate}
+
+\subsection*{Ex 2.13}
+Refer to Grade point average Problem 1.19.
+\begin{enumerate}
+	\item [a.]
+	Obtain a 95 percent interval estimate of the mean freshman GPA for students whose ACT test score is 28. Interpret your confidence interval.
+	
+	\item [b.]
+	Mary Jones obtained a score of 28 on the entrance test. Predict her freshman GPA using a 95 percent prediction interval. Interpret your prediction interval.
+	
+	\item [c.]
+	Is the prediction interval in part (b) wider than the confidence interval in part (a)? Should it be?
+	
+	\item [d.]
+	Determine the boundary values of the 95 percent confidence band for the regression line when $X_h = 28$. Is your confidence band wider at this point than the confidence interval in part (a)? Should it be?
+\end{enumerate}
+
+\subsection*{Ex 2.23}
+Refer to Grade point average Problem 1.19.
+\begin{enumerate}
+	\item [a.]
+	Set up the ANOVA table.
+	
+	\item [b.]
+	What is estimated by MSR in your ANOVA table? by MSE? Under what condition do MSR and MSE estimate the same quantity?
+	
+	\item [c.]
+	Conduct an $F$ test of whether or not $\beta_1 = 0$. Control the $\alpha$ risk at .01. State the alternatives, decision rule, and conclusion.
+	
+	\item [d.]
+	What is the absolute magnitude of the reduction in the variation of $Y$ when $X$ is introduced into the regression model? What is the relative reduction? What is the name of the latter measure?
+	
+	\item [e.]
+	Obtain $r$ and attach the appropriate sign.
+	
+	\item [f.]
+	Which measure, $R^2$ or $r$, has the more clear-cut operational interpretation? Explain.
+\end{enumerate}
+
+{\large\bf Show that for simple linear regression, the t-ratio, $t=\frac{\hat{\beta}_1}{s.e.(\hat{\beta}_1)}$ and the F-ratio, $F=\frac{SS_{reg}}{\hat{\sigma}^2}$ has the relationship, $t^2=F$.}
+
+\end{document}
