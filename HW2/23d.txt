@@ -1,0 +1,17 @@
+Call:
+lm(formula = gpa ~ act, data = ex19)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-2.74004 -0.33827  0.04062  0.44064  1.22737 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  2.11405    0.32089   6.588  1.3e-09 ***
+act          0.03883    0.01277   3.040  0.00292 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.6231 on 118 degrees of freedom
+Multiple R-squared:  0.07262,	Adjusted R-squared:  0.06476 
+F-statistic:  9.24 on 1 and 118 DF,  p-value: 0.002917

@@ -1,0 +1,7 @@
+Call:
+lm(formula = gpa ~ act, data = ex19)
+
+Coefficients:
+(Intercept)          act  
+    2.11405      0.03883  
+
