@@ -1,0 +1,164 @@
+\documentclass[10pt]{report}
+
+\usepackage{subcaption} % for subfigures
+\usepackage{amsthm} % for QED
+\usepackage{mathtools} % for delimiter
+
+\usepackage{listings} % for code
+\lstset{ 
+	language=R,
+	basicstyle=\ttfamily,
+	numbers=none,
+	stepnumber=1,
+	numbersep=8pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	frame=single,
+	tabsize=2,
+	captionpos=t,
+	breaklines=true,
+	breakatwhitespace=false
+} 
+
+\usepackage{float} % for figure [H]
+\usepackage{booktabs} % for tabular
+\usepackage{caption} % for \caption*
+\usepackage[export]{adjustbox} % for valign=t
+\usepackage{array} % for column type m
+\usepackage{verbatim}
+\usepackage{graphicx}
+%\graphicspath{ {imgs/} }
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+%%%%%% Pagination
+\setlength{\topmargin}{-.3 in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textheight}{9.in}
+\setlength{\textwidth}{6.5in}
+
+%Title page
+\newcommand{\hwTitle}{Homework \#3}
+\newcommand{\hwCourse}{Applied Statistics}
+\newcommand{\hmClassInstructor}{Professor Lulu Kang}
+
+\title{
+	\vspace{2in}
+	\textmd{\textbf{\hwCourse\\\hwTitle}}\\
+	\vspace{0.3in}\large{\textit{\hmClassInstructor}}
+	\vspace{3in}
+}
+\author{\textbf{Zhihao Ai}}
+\date{}
+
+%Header setting. 
+\pagestyle{fancy}
+\fancyhead[L]{Zhihao Ai}
+\fancyhead[C]{Math 484}
+\fancyhead[R]{Homework 3}
+%%%%%%
+
+%Global setting.
+%\everymath{\displaystyle}
+\setlength\parindent{0pt}
+
+%Custom general commands.
+\newcommand{\ds}{\displaystyle}
+\newcommand{\ts}{\textstyle}
+
+\newcolumntype{N}{ >$ c <$}
+\newcolumntype{M}[1]{>{\centering\arraybackslash $}m{#1}<{$}}
+
+\newcommand{\abs}[1] {\left| #1 \right|}
+
+\DeclarePairedDelimiter\autoparen{(}{)}
+\newcommand{\pa}[1]{\autoparen*{#1}}
+
+\newcommand{\var} {\text{var}}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem 1}
+(Ex. 6.5) \textbf{Brand preference}
+\begin{enumerate}
+	\item [a.]
+	Obtain the scatter plot matrix and the correlation matrix. What information do these diagnostic aids provide here?
+	
+	\item [b.]
+	Fit regression model (6.1) to the data. State the estimated regression function. How is $b_1$ interpreted here?
+	
+	\item [c.]
+	Obtain the residuals and prepare a box plot of the residuals. What information does this plot provide?
+	
+	\item [d.]
+	Plot the residuals against $\hat{Y}, X_1, X_2$ and $X_1 X_2$ on separate graphs. Also prepare a normal probability pot. Interpret the plots and summerize your findings.
+	
+	\item [e.]
+	Conduct the Breusch-Pagan test for constancy of the error variance, assuming $\log \sigma_i^2 = \gamma_0 + \gamma_1 X_{i1} + \gamma_2 X_{i2}$; use $\alpha = .01$. State the alternatives, decision rule, and conclusion.
+	
+	\item [f.]
+	Conduct a formal test for lack of fit of the first-order regression function; use $\alpha = .01$. State the alternatives, decision rule, and conclusion.
+\end{enumerate}
+
+\section*{Problem 2}
+(Ex. 6.18) \textbf{Commercial properties}
+\begin{enumerate}
+	\item [a.]
+	Prepare a stem-and-leaf plot for each predictor variable. What information do these plots provide?
+
+	\item [b.]
+	Obtain the scatter plot matrix and the correlation matrix. Interpret these and state your principal findings.
+	
+	\item [c.]
+	Fit regression model (6.5) for four predictor variables to the data. State the estimated regression function. 
+	
+	\item [d.]
+	Obtain the residuals and prepare a box plot of the residuals. Does the distribution appear to be fairly symmetrical?
+	
+	\item [e.]
+	Plot the residuals against $\hat{Y}$, each predictor variable, and each two-factor interaction term on separate graphs. Also prepare a normal probability pot. Analyze your plots and summerize your findings.
+	
+	\item [f.]
+	Can you conduct a formal test for lack of fit here?
+	
+	\item [g.]
+	Divide the 81 cases into two groups, placing the 40 cases with the smallest fitted values $\hat{Y}_i$ into group 1 and the remaining cases into group 2. Conduct the Brown-Forsythe test for constancy of the error variance, using $\alpha = .05$. State the decision rule and conclusion.
+\end{enumerate}
+
+\section*{Problem 3}
+(Ex. 6.19) Refer to \textbf{Commercial properties} Problem 6.18. Assume that regression model (6.5) for four predictor variables with independent normal error terms is appropriate.
+\begin{enumerate}
+	\item [a.]
+	Test whether there is a regression relation; use $\alpha = .05$. State the alternatives, decision rule, and conclusion. What does your test imply about $\beta_1, \beta_2, \beta_3, \text{and } \beta_4$? What is the $P$-value of the test?
+	
+	\item [b.]
+	Estimate $\beta_1, \beta_2, \beta_3, \text{and } \beta_4$ jointly by the Bonferroni procedure, using a 95 percent family confidence coefficient. Interpret your results.
+	
+	\item [c.]
+	Calculate $R^2$ and interpret this measure.
+\end{enumerate}
+
+\section*{Problem 4}
+(Ex. 6.20) Refer to \textbf{Commercial properties} Problem 6.18. Assume that regression model (6.5) for four predictor variables with independent normal error terms is appropriate. The researcher wishes to obtain simultaneous interval estimates of the mean rental rates for four typical properties specified as follows:
+\begin{table}[H]
+	\centering
+	\begin{tabular}{*{5}{N}}
+		& 1 & 2 & 3 & 4 \\ \midrule
+		X_1: & 5.0 & 6.0 & 14.0 & 12.0 \\
+		X_2: & 8.25 & 8.50 & 11.50 & 10.25 \\
+		X_3: & 0 & 0.23 & 0.11 & 0 \\
+		X_4: & 250000 & 270000 & 300000 & 310000 \\
+	\end{tabular}
+\end{table}
+Obtain the family of estimates using a 95 percent family confidence coefficient. Employ the most efficient procedure.
+
+\section*{Problem 5}
+Suppose that $\mathbf X = [x_1, \dots, x_k]$, where $x_i$, $i=1, \dots k$ are linearly independent columns of $\mathbf X$ (one of $x_i$ can be a column of $1$ if intercept is included in the model). Show that $\var(\hat{\beta}_k) \ge \sigma^2(x_k' x_k)^{-1}$ with equality if and only if $x_k' x_j = 0, j=0,1,\dots,k-1$.
+
+\end{document}
+
