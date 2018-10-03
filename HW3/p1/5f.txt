@@ -1,0 +1,11 @@
+Analysis of Variance Table
+
+Response: Y
+             Df  Sum Sq Mean Sq F value    Pr(>F)    
+X1            1 1566.45 1566.45 219.853 4.215e-07 ***
+X2            1  306.25  306.25  42.983 0.0001773 ***
+Residuals    13   94.30    7.25                      
+ Lack of fit  5   37.30    7.46   1.047 0.4530065    
+ Pure Error   8   57.00    7.13                      
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
