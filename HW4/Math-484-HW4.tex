@@ -1,0 +1,132 @@
+\documentclass[10pt]{report}
+
+\usepackage{enumerate} % for enumerate counter
+\usepackage{subcaption} % for subfigures
+\usepackage{amsthm} % for QED
+\usepackage{mathtools} % for delimiter
+
+\usepackage{listings} % for code
+\lstset{ 
+	language=R,
+	basicstyle=\footnotesize\ttfamily,
+	numbers=none,
+	stepnumber=1,
+	numbersep=8pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	frame=single,
+	tabsize=2,
+	captionpos=t,
+	breaklines=true,
+	breakatwhitespace=false
+} 
+
+\usepackage{float} % for figure [H]
+\usepackage{booktabs} % for tabular
+\usepackage{caption} % for \caption*
+\usepackage[export]{adjustbox} % for valign=t
+\usepackage{array} % for column type m
+\usepackage{verbatim}
+\usepackage{graphicx}
+%\graphicspath{ {imgs/} }
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+%%%%%% Pagination
+\setlength{\topmargin}{-.3 in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textheight}{9.in}
+\setlength{\textwidth}{6.5in}
+
+%Title page
+\newcommand{\hwTitle}{Homework \#3}
+\newcommand{\hwCourse}{Applied Statistics}
+\newcommand{\hmClassInstructor}{Professor Lulu Kang}
+
+\title{
+	\vspace{2in}
+	\textmd{\textbf{\hwCourse\\\hwTitle}}\\
+	\vspace{0.3in}\large{\textit{\hmClassInstructor}}
+	\vspace{3in}
+}
+\author{\textbf{Zhihao Ai}}
+\date{}
+
+%Header setting. 
+\pagestyle{fancy}
+\fancyhead[L]{Zhihao Ai}
+\fancyhead[C]{Math 484}
+\fancyhead[R]{Homework 3}
+%%%%%%
+
+%Global setting.
+%\everymath{\displaystyle}
+\setlength\parindent{0pt}
+
+%Custom general commands.
+\newcommand{\ds}{\displaystyle}
+\newcommand{\ts}{\textstyle}
+
+\newcolumntype{N}{ >$ c <$}
+\newcolumntype{M}[1]{>{\centering\arraybackslash $}m{#1}<{$}}
+
+\newcommand{\abs}[1] {\left| #1 \right|}
+
+\DeclarePairedDelimiter\autoparen{(}{)}
+\newcommand{\pa}[1]{\autoparen*{#1}}
+
+\newcommand{\var} {\text{var}}
+
+\newcommand{\m}[1] {\mathbf{#1}}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem 1}
+(Ex. 7.19) Refer to \textbf{Commercial properties}  Problem 6.18.
+\begin{enumerate}[a.]
+	\item 
+	Transform the variables by means of the correlation transformation (7.44) and fit the standardized regression model (7.45).
+	
+	\item 
+	Interpret the standardized regression coefficient $b^*_2$.
+	
+	\item 
+	Transform the estimated standardized regression coefficients by means of (7.53) back to the ones for the fitted regression model in the original variables. Verify that they are the same as the ones obtained in Problem 6.18c.
+\end{enumerate}
+
+\section*{Problem 2}
+(Ex. 7.24) Refer to \textbf{Brand preference}  Problem 6.5.
+\begin{enumerate}[a.]
+	\item 
+	Fit first-order simple linear regression model (2.1) for relating brand liking ($Y$) to moisture content ($X_1$). State the fitted regression function.
+	
+	\item 
+	Compare the estimated regression coefficient for moisture content obtained in part (a) with the corresponding coefficient obtained in Problem 6.5b. What do you find?
+	
+	\item 
+	Does $SSR(X_1)$ equal $SSR(X_1|X_2)$ here? If not, is the difference substantial?
+	
+	\item 
+	Refer to the correlation matrix obtained in Problem 6.5a. What bearing does this have on your findings in parts (b) and (c)?
+\end{enumerate}
+
+\section*{Problem 3}
+(Ex. 8.24) \textbf{Assessed valuations}
+\begin{enumerate}[a.]
+	\item 
+	Plot the sample data for the two populations as a symbolic scatter plot. Does the regression relation appear to be the same for the two populations?
+	
+	\item 
+	Test for identity of the regression functions for dwellings on corner lots and dwellings in the other locations; control the risk of Type I error at .05. State the alternatives, decision rule, and conclusion.
+	
+	\item 
+	Plot the estimated regression functions for the two populations and describe the nature of the differences between them.
+\end{enumerate}
+
+\end{document}
+
