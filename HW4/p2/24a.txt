@@ -1,0 +1,3 @@
+Coefficients:
+(Intercept)           X1  
+     50.775        4.425  
