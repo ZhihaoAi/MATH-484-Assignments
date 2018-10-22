@@ -1,0 +1,139 @@
+\documentclass[10pt]{report}
+
+\usepackage{enumerate} % for enumerate counter
+\usepackage{subcaption} % for subfigures
+\usepackage{amsthm} % for QED
+\usepackage{mathtools} % for delimiter
+
+\usepackage{listings} % for code
+\lstset{ 
+	language=R,
+	basicstyle=\footnotesize\ttfamily,
+	numbers=none,
+	stepnumber=1,
+	numbersep=8pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	frame=single,
+	tabsize=2,
+	captionpos=t,
+	breaklines=true,
+	breakatwhitespace=false
+} 
+
+\usepackage{float} % for figure [H]
+\usepackage{booktabs} % for tabular
+\usepackage{caption} % for \caption*
+\usepackage[export]{adjustbox} % for valign=t
+\usepackage{array} % for column type m
+\usepackage{verbatim}
+\usepackage{graphicx}
+%\graphicspath{ {imgs/} }
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+%%%%%%Pagination
+\setlength{\topmargin}{-.3 in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textheight}{9.in}
+\setlength{\textwidth}{6.5in}
+
+%Cover
+\newcommand{\hwTitle}{Homework \#4}
+\newcommand{\hwCourse}{Applied Statistics}
+\newcommand{\hmClassInstructor}{Professor Lulu Kang}
+
+\title{
+	\vspace{2in}
+	\textmd{\textbf{\hwCourse\\\hwTitle}}\\
+	\vspace{0.3in}\large{\textit{\hmClassInstructor}}
+	\vspace{3in}
+}
+\author{\textbf{Zhihao Ai}}
+\date{}
+
+%Header
+\pagestyle{fancy}
+\fancyhead[L]{Zhihao Ai}
+\fancyhead[C]{Math 484}
+\fancyhead[R]{Homework 4}
+%%%%%%
+
+%Global settings
+%\everymath{\displaystyle}
+\setlength\parindent{0pt}
+
+%Custom commands
+\newcommand{\ds}{\displaystyle}
+\newcommand{\ts}{\textstyle}
+
+\newcolumntype{N}{>$ c <$}
+\newcolumntype{M}[1]{>{\centering\arraybackslash $}m{#1}<{$}}
+
+\newcommand{\abs}[1] {\left| #1 \right|}
+
+\DeclarePairedDelimiter\autoparen{(}{)}
+\newcommand{\pa}[1]{\autoparen*{#1}}
+
+\newcommand{\var} {\text{var}}
+
+\newcommand{\m}[1] {\mathbf{#1}}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem 1}
+(Ex. 9.13) \textbf{Lung pressure}
+\begin{enumerate}[a.]
+	\item 
+	Prepare separate dot plots for each of the three predictor variables. Are there any noteworthy features in these plots? Comment.
+	
+	\item 
+	Obtain the scatter plot matrix. Also obtain the correlation matrix of the $X$ variables. What do the scatter plots suggest about the nature of the functional relationship between $Y$ and each of the predictor variables? Are any serious multicollinearity problems evident? Explain.
+	
+	\item 
+	Fit the multiple regression function containing the three predictor variables as first-order terms. Does it appear that all predictor variables should be retained?
+\end{enumerate}
+
+\section*{Problem 2}
+(Ex. 9.14) Refer to \textbf{Lung pressure} Problem 9.13
+\begin{enumerate}[a.]
+	\item 
+	Using first-order and second-order terms for each of the three predictor variables (centered around the mean) in the pool of potential $X$ variables (including cross products of the first-order terms), find the three best hierarchical subset regression models according to the $R_{a,p}^2$ criterion.
+	
+	\item 
+	Is there much difference in $R_{a,p}^2$ for the three best subset models?
+\end{enumerate}
+
+\section*{Problem 3}
+(Ex. 10.13) \textbf{Cosmetics sales}
+\begin{enumerate}[a.]
+	\item 
+	State the regression model to be employed and fit it to the data.
+	
+	\item 
+	Test whether there is a regression relation between sales and the three predictor variables; use $\alpha = .05$. State the alternatives, decision rule, and conclusion.
+	
+	\item 
+	Tets for each of the regression coefficients $\beta_k (k=1,2,3)$ individually whether or not $\beta_k=0$; use $\alpha = .05$ each time. Do the conclusions of these tests correspond to that obtained in part (b)?
+\end{enumerate}
+
+\section*{Problem 4}
+(Ex. 10.20) Refer to \textbf{Lung pressure} Problem 9.13 and 9.14. The subset regression model containing first-order terms for $X_1$ and $X_2$ and the cross-product term $X_1 X_2$ is to be evaluated in detail.
+\begin{enumerate}[a.]
+	\item 
+	Obtain the residuals and plot them separately against $\hat{Y}$ and each of the three predictor variables. On the basis of these plots, should any further modifications of the regression model be attempted?
+	
+	\item 
+	Prepare a normal probability plot of the residuals. Also obtain the coefficient of correlation between the ordered residuals and their expeced values under normality. Does the normality assumption appear to be reasonable here?
+	
+	\item 
+	Obtain the variance inflation factors. Are there any indications that serious multicollinearity problems are present? Explain.
+\end{enumerate}
+
+\end{document}
+
