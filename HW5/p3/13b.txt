@@ -1,0 +1,10 @@
+Analysis of Variance Table
+
+Response: Y
+          Df Sum Sq Mean Sq  F value    Pr(>F)    
+X1         1 365.56  365.56 109.7054 4.994e-13 ***
+X2         1   5.07    5.07   1.5215   0.22459    
+X3         1  12.03   12.03   3.6113   0.06461 .  
+Residuals 40 133.29    3.33                       
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
