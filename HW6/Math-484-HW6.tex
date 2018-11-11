@@ -1,0 +1,147 @@
+\documentclass[10pt]{report}
+
+\usepackage{enumerate} % for enumerate counter
+\usepackage{subcaption} % for subfigures
+\usepackage{amsthm} % for QED
+\usepackage{mathtools} % for delimiter
+
+\usepackage{listings} % for code
+\lstset{ 
+	language=R,
+	basicstyle=\footnotesize\ttfamily,
+	numbers=none,
+	stepnumber=1,
+	numbersep=8pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	frame=single,
+	tabsize=2,
+	captionpos=t,
+	breaklines=true,
+	breakatwhitespace=false
+} 
+
+\usepackage{float} % for figure [H]
+\usepackage{booktabs} % for tabular
+\usepackage{caption} % for \caption*
+\usepackage[export]{adjustbox} % for valign=t
+\usepackage{array} % for column type m
+\usepackage{verbatim}
+\usepackage{graphicx}
+%\graphicspath{ {imgs/} }
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+%%%%%%Pagination
+\setlength{\topmargin}{-.3 in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textheight}{9.in}
+\setlength{\textwidth}{6.5in}
+
+%Cover
+\newcommand{\hwTitle}{Homework \#6}
+\newcommand{\hwCourse}{Applied Statistics}
+\newcommand{\hmClassInstructor}{Professor Lulu Kang}
+
+\title{
+	\vspace{2in}
+	\textmd{\textbf{\hwCourse\\\hwTitle}}\\
+	\vspace{0.3in}\large{\textit{\hmClassInstructor}}
+	\vspace{3in}
+}
+\author{\textbf{Zhihao Ai}}
+\date{}
+
+%Header
+\pagestyle{fancy}
+\fancyhead[L]{Zhihao Ai}
+\fancyhead[C]{Math 484}
+\fancyhead[R]{Homework 6}
+%%%%%%
+
+%Global settings
+%\everymath{\displaystyle}
+\setlength\parindent{0pt}
+
+%Custom commands
+\newcommand{\ds}{\displaystyle}
+\newcommand{\ts}{\textstyle}
+
+\newcolumntype{N}{>$ c <$}
+\newcolumntype{M}[1]{>{\centering\arraybackslash $}m{#1}<{$}}
+
+\newcommand{\abs}[1] {\left| #1 \right|}
+
+\DeclarePairedDelimiter\autoparen{(}{)}
+\newcommand{\pa}[1]{\autoparen*{#1}}
+
+\newcommand{\var} {\text{var}}
+
+\newcommand{\m}[1] {\mathbf{#1}}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem 1}
+(Ex. 14.9) \textbf{Performance ability} + (Ex. 14.10(a))
+\begin{enumerate}[a.]
+	\item 
+	Find the maximum likelihood estimate of $\beta_0$ and $\beta_1$. State the fitted response function.
+	
+	\item 
+	Obtain a scatter plot of the data with both the fitted logistic response function from part (a) and a lowess smooth superimposed. Does the fitted logistic response function appear to fit well?
+	
+	\item 
+	Obtain $\exp{b_1}$ and interpret this number.
+	
+	\item 
+	What is the estimated probability that employees with an emotional stability test score of 550 will be able to perform in a task group?
+	
+	\item 
+	Estimate the emotional stability test score for which 70 percent of the employees with this test score are expected to be able to perform in a task group.
+	
+	\item 
+	Fit a probit mean response function (14.12) to the data. Quantitatively compare the fit here with the logistic fit obtain in part (a). What do you conclude?
+\end{enumerate}
+
+\section*{Problem 2}
+(Ex. 14.13) \textbf{Car purchase}
+\begin{enumerate}[a.]
+	\item 
+	Find the maximum likelihood estimates of $\beta_0$, $\beta_1$ and $\beta_2$. State the fitted response function.
+	
+	\item 
+	Obtain $\exp{b_1}$ and $\exp{b_2}$ and interpret these numbers.
+	
+	\item 
+	What is the estimated probability that a family with annual income of \$50 thousand and an oldest car of 3 years will purchase a new car next year?
+\end{enumerate}
+
+\section*{Problem 3}
+(Ex. 14.12) \textbf{Toxicity experiment}
+\begin{enumerate}[a.]
+	\item 
+	Plot the estimated proportions $p_j = Y_j / n_j$ against $X_j$. Does the plot support the analyst's belief that the logistic response function is appropriate?
+	
+	\item 
+	Find the maximum likelihood estimates of $\beta_0$ and $\beta_1$. State the fitted response function.
+	
+	\item 
+	Obtain a scatter plot of the data with the estimated proportions from part (a), and superimpose the fitted logistic response function from part (b). Does the fitted logistic response function appear to fit well?
+	
+	\item 
+	Obtain $\exp{b_1}$ and interpret this number.
+	
+	\item 
+	What is the estimated probability that an insect dies when the dose level is $X=3.5$?
+	
+	\item 
+	What is the estimated median lethal dose---that is, the dose for which 50 percent of the experimental insects are expected to die?
+\end{enumerate}
+
+\end{document}
+
