@@ -1,0 +1,6 @@
+Coefficients:
+             Estimate Std. Error z value Pr(>|z|)   
+(Intercept) -6.374398   2.464111  -2.587  0.00968 **
+X            0.011695   0.004437   2.636  0.00839 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
