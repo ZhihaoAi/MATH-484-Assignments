@@ -1,0 +1,148 @@
+\documentclass[10pt]{report}
+
+\usepackage{enumerate} % for enumerate counter
+\usepackage{subcaption} % for subfigures
+\usepackage{amsthm} % for QED
+\usepackage{mathtools} % for delimiter
+
+\usepackage{listings} % for code
+\lstset{ 
+	language=R,
+	basicstyle=\footnotesize\ttfamily,
+	numbers=none,
+	stepnumber=1,
+	numbersep=8pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	frame=single,
+	tabsize=2,
+	captionpos=t,
+	breaklines=true,
+	breakatwhitespace=false
+} 
+
+\usepackage{float} % for figure [H]
+\usepackage{booktabs} % for tabular
+\usepackage{caption} % for \caption*
+\usepackage[export]{adjustbox} % for valign=t
+\usepackage{array} % for column type m
+\usepackage{verbatim}
+\usepackage{graphicx}
+%\graphicspath{ {imgs/} }
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+%%%%%%Pagination
+\setlength{\topmargin}{-.3 in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textheight}{9.in}
+\setlength{\textwidth}{6.5in}
+
+%Cover
+\newcommand{\hwTitle}{Homework \#7}
+\newcommand{\hwCourse}{Applied Statistics}
+\newcommand{\hmClassInstructor}{Professor Lulu Kang}
+
+\title{
+	\vspace{2in}
+	\textmd{\textbf{\hwCourse\\\hwTitle}}\\
+	\vspace{0.3in}\large{\textit{\hmClassInstructor}}
+	\vspace{3in}
+}
+\author{\textbf{Zhihao Ai}}
+\date{}
+
+%Header
+\pagestyle{fancy}
+\fancyhead[L]{Zhihao Ai}
+\fancyhead[C]{Math 484}
+\fancyhead[R]{Homework 7}
+%%%%%%
+
+%Global settings
+%\everymath{\displaystyle}
+\setlength\parindent{0pt}
+
+%Custom commands
+\newcommand{\ds}{\displaystyle}
+\newcommand{\ts}{\textstyle}
+
+\newcolumntype{N}{>$ c <$}
+\newcolumntype{M}[1]{>{\centering\arraybackslash $}m{#1}<{$}}
+
+\newcommand{\abs}[1] {\left| #1 \right|}
+
+\DeclarePairedDelimiter\autoparen{(}{)}
+\newcommand{\pa}[1]{\autoparen*{#1}}
+
+\newcommand{\var} {\text{var}}
+
+\newcommand{\m}[1] {\mathbf{#1}}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem 1}
+(Ex. 14.14) \textbf{Flu shots}\\
+Multiple logistic regression model (14.41) with three predictor variables in first-order terms is assumed to be appropriate.1
+\begin{enumerate}[a.]
+	\item 
+	Find the maximum likelihood estimates of $\beta_0$, $\beta_1$, $\beta_2$ and $\beta_3$. State the fitted response function.
+	\lstinputlisting{p1/14a.txt}
+	The fitted response function is 
+	\[
+	\hat{\pi} = \frac{\exp(-1.17716 + 0.07279 X_1 - 0.09899 X_2 + 0.43397 X_3)}{1 + \exp(-1.17716 + 0.07279 X_1 - 0.09899 X_2 + 0.43397 X_3)}
+	\]
+	The maximum likelihood estimate of $\beta_0$, $\beta_1$, $\beta_2$ and $\beta_3$ are $b_0 = -1.17716$, $b_1 = 0.07279$, $b_2 = -0.09899$ and $b_3 = 0.43397$, respectively.
+	
+	\item 
+	Obtain $\exp(b_1)$, $\exp(b_2)$, and $\exp(b_3)$. Interpret these numbers.
+	
+	The odds ratio $\widehat{OR}_1 = \exp(b_1) = 1.075505$ means that the odds of a client actually receiving a flu shot are estimated to increase by about 7.6 percent with each unit increase in the age of the client, with other variables fixed.\\
+	The odds ratio $\widehat{OR}_2 = \exp(b_2) = -0.09899$ means that the odds of a client actually receiving a flu shot are estimated to decrease by about 9.9 percent with each unit increase in the health awareness index of the client, with other variables fixed.\\
+	The odds ratio $\widehat{OR}_3 = \exp(b_3) = 0.43397$ means that the odds of a client actually receiving a flu shot are estimated to increase by about 43.4 percent if the client is male, with other variables fixed.
+	
+	\item 
+	What is the estimated probability that male clients aged 55 with a health awareness index of 60 will receive a flu shot?
+	
+	The estimated probability is $\hat{\pi}(55, 60, 1) = \frac{\exp(-1.17716 + 0.07279\cdot 55 - 0.09899\cdot 60 + 0.43397\cdot 1)}{1 + \exp(-1.17716 + 0.07279\cdot 55 - 0.09899\cdot 60 + 0.43397\cdot 1)} = 0.06422$.
+\end{enumerate}
+
+\section*{Problem 2}
+(Ex. 14.20) Refer to \textbf{Flu shots}
+\begin{enumerate}[a.]
+	\item 
+	Obtain joint confidence intervals for the age odds ratio $\exp(30\beta_1)$ for male clients whose ages differ by 30 years and for the health awareness index odds ratio $\exp(25\beta_2)$ for male clients whose health awareness index differs by 25, with family confidence coefficient of approximatedly .90. Interpret your intervals.
+	
+	\item 
+	Use the Wald test to determine whether $X_3$, client gender, can be dropped from the regression model; use $\alpha=.05$. State the alternatives, decision rule, and conclusion. What is the approximate $P$-value of the test?
+	
+	\item 
+	Use the likelihood ratio test to determine whether $X_3$, client gender, can be dropped from the regression model; use $\alpha=.05$. State the full and reduced models, decision rule, and conclusion. What is the approximate $P$-value of the test? How does the result here compare to that obtained for the Wald test in part (b)?
+	
+	\item 
+	Use the likelihood ratio test to determine whether the following three second-order terms, the square of age, the square of health awareness index, and the two-factor interaction effect between age and health awareness index, should be added simultaneously to the regression model containing age and health awareness index as first-order terms; use $\alpha=.05$. State the alternatives, full and reduced models, decision rule, and conclusion. What is the approximate $P$-value of the test?
+\end{enumerate}
+
+\section*{Problem 3}
+(Ex. 14.22) Refer to \textbf{Flu shots} where the pool of predictors consist of all first-order terms and all second-order terms in age and health awareness index.
+\begin{enumerate}[a.]
+	\item 
+	Use forward selection to decide which predictor variables enter into the regression model. Control the $\alpha$ risk at .10 at each stage. Which variables are entered into the regression model?
+	
+	\item 
+	Use backware elimination to decide which predictor variables can be dropped from the regression model. Control the $\alpha$ risk at .10 at each stage. Which variables are retained? How does this compare to your results in part (a)?
+	
+	\item 
+	FInd the best model according to the $AIC_p$ criterion. How does this compare to your results in part (a) and part (b)?
+	
+	\item 
+	FInd the best model according to the $SBC_p$ criterion. How does this compare to your results in part (a), part (b) and part (c)?
+\end{enumerate}
+
+\end{document}
+
