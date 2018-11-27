@@ -1,0 +1,7 @@
+Analysis of Deviance Table
+
+Model 1: Y ~ X1 + X2
+Model 2: Y ~ X1 * X2 + X1sq + X2sq
+  Resid. Df Resid. Dev Df Deviance
+1       156     105.80            
+2       153     104.26  3   1.5339

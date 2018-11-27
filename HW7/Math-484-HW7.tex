@@ -102,9 +102,9 @@ Multiple logistic regression model (14.41) with three predictor variables in fir
 	\item 
 	Obtain $\exp(b_1)$, $\exp(b_2)$, and $\exp(b_3)$. Interpret these numbers.
 	
-	The odds ratio $\widehat{OR}_1 = \exp(b_1) = 1.075505$ means that the odds of a client actually receiving a flu shot are estimated to increase by about 7.6 percent with each unit increase in the age of the client, with other variables fixed.\\
-	The odds ratio $\widehat{OR}_2 = \exp(b_2) = -0.09899$ means that the odds of a client actually receiving a flu shot are estimated to decrease by about 9.9 percent with each unit increase in the health awareness index of the client, with other variables fixed.\\
-	The odds ratio $\widehat{OR}_3 = \exp(b_3) = 0.43397$ means that the odds of a client actually receiving a flu shot are estimated to increase by about 43.4 percent if the client is male, with other variables fixed.
+	The odds ratio $\widehat{OR}_1 = \exp(b_1) = 1.075505$ means that the odds of a client receiving a flu shot are estimated to increase by about 7.6 percent with each unit increase in the age of the client, with other variables fixed.\\
+	The odds ratio $\widehat{OR}_2 = \exp(b_2) = 0.9057518$ means that the odds of a client receiving a flu shot are estimated to decrease by about 9.4 percent with each unit increase in the health awareness index of the client, with other variables fixed.\\
+	The odds ratio $\widehat{OR}_3 = \exp(b_3) = 1.543373$ means that the odds of a male client receiving a flu shot are about 1.54 times as great as for a female client, with other variables fixed.
 	
 	\item 
 	What is the estimated probability that male clients aged 55 with a health awareness index of 60 will receive a flu shot?
@@ -116,16 +116,98 @@ Multiple logistic regression model (14.41) with three predictor variables in fir
 (Ex. 14.20) Refer to \textbf{Flu shots}
 \begin{enumerate}[a.]
 	\item 
-	Obtain joint confidence intervals for the age odds ratio $\exp(30\beta_1)$ for male clients whose ages differ by 30 years and for the health awareness index odds ratio $\exp(25\beta_2)$ for male clients whose health awareness index differs by 25, with family confidence coefficient of approximatedly .90. Interpret your intervals.
+	Obtain joint confidence intervals for the age odds ratio $\exp(30\beta_1)$ for male clients whose ages differ by 30 years and for the health awareness index odds ratio $\exp(25\beta_2)$ for male clients whose health awareness index differs by 25, with family confidence coefficient of approximately .90. Interpret your intervals.
+	
+	With 2 parameters to be estimated and family confidence coefficient being approximately .90
+	\[
+	B = z(1 - 0.1/2/2) = 1.959964
+	\]
+	The joint Bonferronic confidence limits are
+	\begin{align*}
+		b_1 &\pm B\cdot s(b_1) = 0.07279 \pm 0.05954\\
+		b_2 &\pm B\cdot s(b_2) = -0.09899 \pm 0.06562
+	\end{align*}
+	The confidence intervals for the odds ratio are
+	\begin{align*}
+		1.4881 \le &\exp(30\cdot \beta_1) \le 52.97923\\
+		0.01632 \le &\exp(25\cdot \beta_2) \le 0.4342
+	\end{align*}
+	The intervals mean that, with 90 percent confidence we estimate that the odds of male clients receiving flu shots increase by between 48.8 percent and 5197.8 percent with an increase in age by 30 years, and decrease by between 56.6 percent and 98.4 percent with an increase in health awareness index by 25.
 	
 	\item 
 	Use the Wald test to determine whether $X_3$, client gender, can be dropped from the regression model; use $\alpha=.05$. State the alternatives, decision rule, and conclusion. What is the approximate $P$-value of the test?
 	
+	The alternatives are
+	\begin{align*}
+		H_0 &: \beta_3 = 0\\
+		H_a &: \beta_3 \ne 0
+	\end{align*}
+	The test statistic is
+	\[
+	z^* = \frac{b_3}{s(b_3)} = \frac{0.43397}{0.52179} = 0.832
+	\]
+	The decision rule is
+	\begin{align*}
+	\text{If } \abs{z^*} \le z(1-\alpha/2) = 1.959964, \text{ conclude } H_0\\
+	\text{If } \abs{z^*} > z(1-\alpha/2) = 1.959964, \text{ conclude } H_a
+	\end{align*}
+	Since $z^* = 0.832 < 1.959964$, we conclude $H_0$, that $X_3$ can be dropped from the regression model. The $P$-value of the test is $P(\abs{Z} > \abs{z^*}) = 0.40558$.
+	
 	\item 
 	Use the likelihood ratio test to determine whether $X_3$, client gender, can be dropped from the regression model; use $\alpha=.05$. State the full and reduced models, decision rule, and conclusion. What is the approximate $P$-value of the test? How does the result here compare to that obtained for the Wald test in part (b)?
 	
+	The full model is
+	\[
+	\log\pa{\frac{\pi(x)}{1-\pi(x)}} = \beta_0 + X_1 \beta_1 + X_2 \beta_2 + X_3 \beta_3 
+	\]
+	The reduced model is
+	\[
+	\log\pa{\frac{\pi(x)}{1-\pi(x)}} = \beta_0 + X_1 \beta_1 + X_2 \beta_2
+	\]
+	\lstinputlisting{p2/20c.txt}
+	The alternatives are
+	\begin{align*}
+		H_0 &: \beta_3 = 0\\
+		H_a &: \beta_3 \ne 0
+	\end{align*}
+	The test statistic is
+	\[
+	G^2 = -2 \log\pa{\frac{L(R)}{L(F)}} =  0.70221
+	\]
+	The decision rule is
+	\begin{align*}
+		\text{If } G^2 \le \chi^2(1-\alpha; p-q) = 3.841459, \text{ conclude } H_0\\
+		\text{If } G^2 > \chi^2(1-\alpha; p-q) = 3.841459, \text{ conclude } H_a
+	\end{align*}
+	Since $G^2 = 0.70221 < 3.841459$, we conclude $H_0$, that $\beta_3$ can be dropped from the regression model. The $P$-value of the test is 0.4020421. The result is the same as what was obtained in part (b).
+	
 	\item 
 	Use the likelihood ratio test to determine whether the following three second-order terms, the square of age, the square of health awareness index, and the two-factor interaction effect between age and health awareness index, should be added simultaneously to the regression model containing age and health awareness index as first-order terms; use $\alpha=.05$. State the alternatives, full and reduced models, decision rule, and conclusion. What is the approximate $P$-value of the test?
+	
+	The full model is
+	\[
+	\log\pa{\frac{\pi(x)}{1-\pi(x)}} = \beta_0 + X_1 \beta_1 + X_2 \beta_2 + X_1^2 \beta_3 + X_2^2 \beta_4 + X_1 X_2 \beta_5
+	\]
+	The reduced model is
+	\[
+	\log\pa{\frac{\pi(x)}{1-\pi(x)}} = \beta_0 + X_1 \beta_1 + X_2 \beta_2
+	\]
+	\lstinputlisting{p2/20d.txt}
+	The alternatives are
+	\begin{align*}
+	H_0 &: \beta_3 = \beta_4 = \beta_5 = 0\\
+	H_a &: \text{not all $\beta_k$ in $H_0$ equal zero}
+	\end{align*}
+	The test statistic is
+	\[
+	G^2 = -2 \log\pa{\frac{L(R)}{L(F)}} =  1.5339
+	\]
+	The decision rule is
+	\begin{align*}
+	\text{If } G^2 \le \chi^2(1-\alpha; p-q) = 7.814728, \text{ conclude } H_0\\
+	\text{If } G^2 > \chi^2(1-\alpha; p-q) = 7.814728, \text{ conclude } H_a
+	\end{align*}
+	Since $G^2 = 1.5339 < 7.814728$, we conclude $H_0$, that the three second-order terms should not be added simultaneously to the regression model. The $P$-value of the test is 0.6744686. 
 \end{enumerate}
 
 \section*{Problem 3}
@@ -134,14 +216,22 @@ Multiple logistic regression model (14.41) with three predictor variables in fir
 	\item 
 	Use forward selection to decide which predictor variables enter into the regression model. Control the $\alpha$ risk at .10 at each stage. Which variables are entered into the regression model?
 	
+	$X_2$ and $X_1 X_2$ are entered into the regression model.
+	
 	\item 
 	Use backware elimination to decide which predictor variables can be dropped from the regression model. Control the $\alpha$ risk at .10 at each stage. Which variables are retained? How does this compare to your results in part (a)?
 	
-	\item 
-	FInd the best model according to the $AIC_p$ criterion. How does this compare to your results in part (a) and part (b)?
+	$X_2$ and $X_1 X_2$ are retained. It's the same as the results in part (b).
 	
 	\item 
-	FInd the best model according to the $SBC_p$ criterion. How does this compare to your results in part (a), part (b) and part (c)?
+	Find the best model according to the $AIC_p$ criterion. How does this compare to your results in part (a) and part (b)?
+	
+	According to the $AIC_p$ criterion, the best model contains $X_2$ and $X_1 X_2$, with $AIC_p = 111.789$. It's the same as the previous results.
+	
+	\item 
+	Find the best model according to the $SBC_p$ criterion. How does this compare to your results in part (a), part (b) and part (c)?
+	
+	According to the $SBC_p$ criterion, the best model contains $X_2$ and $X_1 X_2$, with $SBC_p = 120.9957$. It's the same as the previous results.
 \end{enumerate}
 
 \end{document}
